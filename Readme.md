@@ -22,8 +22,8 @@ This is a web-based Text-to-Speech (T2S) application that converts text input in
 ## Setup Instructions
 
 1. **Clone this repository**:
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   - Clone this repo 
+   - cd Multilingual-Text-to-Speech-Converter
 
 2. **Install dependencies**:
     pip install -r requirements.txt
