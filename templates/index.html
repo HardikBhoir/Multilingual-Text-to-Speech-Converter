@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Landing Page</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Hero Section -->
+        <section class="section hero">
+            <div class="content">
+                <h1>Transform Your Text into Speech</h1>
+                <p>Experience the power of AI-driven voice synthesis, convert your text to realistic speech in seconds.</p>
+                <a href="#demo" class="cta-btn">Try it Now</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about">
+            <div class="content">
+                <h2>How It Works</h2>
+                <p>Simply input your text, select your voice, and let our system convert it into speech. Powered by Amazon Polly’s neural engine, we provide the most natural-sounding AI voices.</p>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="section demo" id="demo">
+            <div class="content">
+                <h2>Text to Speech Converter</h2>
+                <form action="/synthesize#demo" method="POST" id="t2s-form">
+                    <textarea name="text" rows="4" placeholder="Enter your text here..."></textarea>
+
+                    <label for="language">Select Language:</label>
+                    <select name="language" id="language">
+                        <option value="en" selected>English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="it">Italian</option>
+                    </select>
+                    <br>
+                    <br>    
+                    <button type="submit" class="button-29">Convert to Speech</button>
+                    <br>
+                    <br>
+                    <br>
+                </form>
+
+                {% if audio_url %}
+                <div class="container-audio">
+                    <h3>Your Speech Output:</h3>
+                    <br>
+                    <audio controls>
+                        <source src="{{ audio_url }}" type="audio/mp3">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <br>
+                    <br>
+                    <a href="{{ audio_url }}" download>
+                        <button class="button-29">Download Audio</button>
+                    </a>
+                </div>
+                {% endif %}
+                
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section features">
+            <div class="content">
+                <h2>Why Choose Us?</h2>
+                <ul>
+                    <li>High-quality, natural voices</li>
+                    <li>Fast and reliable text-to-speech processing</li>
+                    <li>Supports multiple languages and accents</li>
+                    <li>SSML support for advanced customization</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="section footer">
+            <div class="content">
+                <p>Powered by AWS Polly - Providing AI-driven, natural speech.</p>
+                <p>Contact us: info@example.com | © 2024 Text-to-Speech Inc.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scroll to demo section after form submission
+        document.getElementById('t2s-form').addEventListener('submit', function() {
+            setTimeout(function() {
+                document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        });
+    </script>
+</body> 
+</html>
+
+
+
